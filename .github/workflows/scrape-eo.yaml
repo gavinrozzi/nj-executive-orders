@@ -19,7 +19,7 @@ jobs:
       - name: Scrape the data
         run: Rscript scrape_exec_orders.R
       - name: Commit results
-        run:
+        run: |
           git add -A
-          git commit -m 'Update data || echo "No changes to commit"
+          git commit -m 'Update data' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
