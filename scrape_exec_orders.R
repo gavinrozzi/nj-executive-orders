@@ -4,6 +4,7 @@ library(rvest)
 library(dplyr)
 library(lubridate)
 
+cat("Downloading Executive Order data...")
 # Get governor's EO website
 content <- read_html('https://nj.gov/infobank/eo/056murphy/approved/eo_archive.html') %>%
   html_table(fill = TRUE, header = TRUE)
