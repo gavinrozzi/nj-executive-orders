@@ -21,5 +21,5 @@ jobs:
       - name: Commit results
         run:
           git add -A
-          git commit execorders.csv -m 'Update execorders.csv' || echo "No changes to commit"
+          git commit -m 'Update data || echo "No changes to commit"
           git push origin || echo "No changes to commit"
