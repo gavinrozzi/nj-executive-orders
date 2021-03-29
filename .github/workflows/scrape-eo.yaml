@@ -1,0 +1,24 @@
+on:
+  push:
+    branches: main
+  #schedule:
+  #  - cron: '59 23 * * 0'
+
+name: Scrape Executive Orders
+
+jobs:
+  render:
+    name: Scrape Executive Orders
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@v1
+      - uses: r-lib/actions/setup-pandoc@v1
+      - name: Install dependencies
+        run: Rscript -e 'install.packages(c("rvest","dplyr","lubridate"))'
+      - name: Scrape the data
+        run: Rscript scrape_exec_orders.R
+      - name: Commit results
+        run: |
+          git commit README.md -m 'Re-build README.Rmd' || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
