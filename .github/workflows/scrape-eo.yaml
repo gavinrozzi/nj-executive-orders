@@ -20,5 +20,5 @@ jobs:
       - name: Commit results
         run: |
           git add -A
-          git commit -m 'Update data' || echo "No changes to commit"
+          git commit -m 'New Executive Order signed - data updated!' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
