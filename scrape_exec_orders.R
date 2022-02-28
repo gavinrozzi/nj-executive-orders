@@ -11,7 +11,7 @@ content <- read_html('https://nj.gov/infobank/eo/056murphy/approved/eo_archive.h
 
 # Construct a data frame from the scraped table, parse the dates
 execorders <- data.frame(number = content[[1]][1], subject = content[[1]][2], date = content[[1]][3]) %>% 
-  rename('Number' = 'No.') %>% mutate(Date.Issued = ymd(Date.Issued)) %>% 
+  mutate(Date.Issued = ymd(Date.Issued)) %>% 
   rename('Date' = "Date.Issued")
 
 # Generate URL for full text download EO-77.pdf
